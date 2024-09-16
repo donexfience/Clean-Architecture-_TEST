@@ -2,7 +2,7 @@ import { Iuser, UserModel } from "./../mongodb/models/userModel";
 import { User } from "../../../domain/entities/User";
 import { UserRepository } from "../../../domain/repositories/user-repositories-interface";
 
-export class mongoDBUserRepository implements UserRepository {
+export class MongoDBUserRepository implements UserRepository {
   private toUser(userDoc: Iuser): User {
     return new User({
       id: userDoc._id.toString(),

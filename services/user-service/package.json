@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-proto": "npx proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=./generated ./infrastructure/grpc/proto/*.proto"
+    "start": "node dist/presentation/server.js",
+    "postbuild": "copyfiles -u 1 src/infrastructure/grpc/proto/**/* dist/infrastructure/grpc/proto",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^22.5.4"
+    "@types/node": "^22.5.4",
+    "copyfiles": "^2.4.1"
   }
 }
